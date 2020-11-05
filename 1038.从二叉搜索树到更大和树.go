@@ -15,6 +15,14 @@
  */
 package main
 
+func getLeftNode(root *TreeNode) *TreeNode {
+	for root.Left != nil {
+		root = root.Left
+	}
+
+	return root
+}
+
 func bstToGst(root *TreeNode, base ...int) *TreeNode {
 	val := 0
 	if len(base) > 0 {
@@ -25,18 +33,18 @@ func bstToGst(root *TreeNode, base ...int) *TreeNode {
 		right := bstToGst(root.Right, val)
 
 		if right.Left != nil {
-			root.Val = right.Left.Val + root.Val + val
+			left := getLeftNode(right)
+			root.Val = left.Val + root.Val
 		} else {
 			root.Val = right.Val + root.Val
 		}
+	} else {
+		root.Val = root.Val + val
 	}
 
 	if root.Left != nil {
-		root.Left.Val = root.Val + root.Left.Val
-		bstToGst(root.Left, root.Val+val)
+		bstToGst(root.Left, root.Val)
 	}
-
-	root.Val = root.Val + val
 
 	return root
 }
