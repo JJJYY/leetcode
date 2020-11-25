@@ -3,6 +3,7 @@
  *
  * [69] x 的平方根
  */
+package main
 
 // @lc code=start
 func mySqrt(x int) int {
@@ -10,4 +11,3 @@ func mySqrt(x int) int {
 }
 
 // @lc code=end
-

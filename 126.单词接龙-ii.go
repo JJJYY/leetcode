@@ -3,10 +3,11 @@
  *
  * [126] 单词接龙 II
  */
+package main
 
 // @lc code=start
 func findLadders(beginWord string, endWord string, wordList []string) [][]string {
 
 }
-// @lc code=end
 
+// @lc code=end

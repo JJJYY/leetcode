@@ -3,36 +3,31 @@
  *
  * [208] 实现 Trie (前缀树)
  */
+package main
 
 // @lc code=start
 type Trie struct {
-
 }
-
 
 /** Initialize your data structure here. */
 func Constructor() Trie {
 
 }
 
-
 /** Inserts a word into the trie. */
-func (this *Trie) Insert(word string)  {
+func (this *Trie) Insert(word string) {
 
 }
-
 
 /** Returns if the word is in the trie. */
 func (this *Trie) Search(word string) bool {
 
 }
 
-
 /** Returns if there is any word in the trie that starts with the given prefix. */
 func (this *Trie) StartsWith(prefix string) bool {
 
 }
-
 
 /**
  * Your Trie object will be instantiated and called as such:
@@ -42,4 +37,3 @@ func (this *Trie) StartsWith(prefix string) bool {
  * param_3 := obj.StartsWith(prefix);
  */
 // @lc code=end
-

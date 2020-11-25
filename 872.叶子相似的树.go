@@ -3,6 +3,7 @@
  *
  * [872] 叶子相似的树
  */
+package main
 
 // @lc code=start
 /**
@@ -16,5 +17,5 @@
 func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 
 }
-// @lc code=end
 
+// @lc code=end
