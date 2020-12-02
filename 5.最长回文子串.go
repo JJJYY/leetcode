@@ -12,15 +12,24 @@ import (
 
 // @lc code=start
 func longestPalindrome(s string) string {
-	childString := ""
+	if len(s) == 1 {
+		return s
+	}
+
+	childString := s[0:1]
 
 	for i := 0.5; i < float64(len(s)); i += 0.5 {
-		for j := 0.0; j < math.Min(float64(len(s))-i, i); j++ { // 2
-			prev := int(math.Ceil(i - j))
-			next := int(math.Floor(i + j))
+		for j := 0.0; i+j < float64(len(s))-1; j++ { // 2
+			if i-j >= 0 {
+				prev := int(math.Ceil(i - j))
+				next := int(math.Floor(i + j))
 
-			if s[prev] == s[next] {
-				childString = s[prev : next+1]
+				if s[prev] == s[next] {
+					str := s[prev : next+1]
+					if len(childString) < len(str) {
+						childString = str
+					}
+				}
 			}
 		}
 	}
