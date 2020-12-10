@@ -6,35 +6,31 @@
 
 package main
 
-import (
-	"math"
-)
-
 // @lc code=start
 func longestPalindrome(s string) string {
-	if len(s) == 1 {
+	if len(s) <= 1 {
 		return s
 	}
 
-	childString := s[0:1]
-
-	for i := 0.5; i < float64(len(s)); i += 0.5 {
-		for j := 0.0; i+j < float64(len(s))-1; j++ { // 2
-			if i-j >= 0 {
-				prev := int(math.Ceil(i - j))
-				next := int(math.Floor(i + j))
-
-				if s[prev] == s[next] {
-					str := s[prev : next+1]
-					if len(childString) < len(str) {
-						childString = str
-					}
-				}
-			}
+	start, end := 0, 0
+	for i := 0; i < len(s); i++ {
+		left1, right1 := expandAroundCenter(s, i, i)
+		left2, right2 := expandAroundCenter(s, i, i+1)
+		if right1-left1 > end-start {
+			start, end = left1, right1
+		}
+		if right2-left2 > end-start {
+			start, end = left2, right2
 		}
 	}
 
-	return childString
+	return s[start : end+1]
+}
+
+func expandAroundCenter(s string, left, right int) (int, int) {
+	for ; left >= 0 && right < len(s) && s[left] == s[right]; left, right = left-1, right+1 {
+	}
+	return left + 1, right - 1
 }
 
 // @lc code=end
